@@ -17,7 +17,7 @@ def round_iso8601(ts, round_sec=900, iso_format='Z'):
         Formatted with Z(ulu) time to milliseconds if iso_format is 'Z'
     """
     dt = parse(ts)
-    secs = dt.microsecond / 1e6 + dt.second + 60. * dt.minute + 3600. * dt.hour 
+    secs = dt.microsecond / 1e6 + dt.second + * dt.minute * 60. + dt.hour * 3600.
     new_secs = round_b(secs, round_sec)
     
     dt = dt.replace(hour=0, minute=0, second=0, microsecond=0)
